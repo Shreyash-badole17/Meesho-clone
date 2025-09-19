@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="https://static.meeshosupply.com/web/meesho-logo-fav.png">
+    <link rel="stylesheet" href="./css/homePage.css">
+    <link rel="stylesheet" href="./css/search.css">
+    <title>SignUp | Meesho</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <section class="navbar">
+      <div class="uppernav">
+        <a href="index.html"><img
+          src="https://cdn.hevodata.com/customer/logo/8c76f62bd88177a78bb6e2810a244446.png"
+          alt="logo"
+          class="logo"
+        /></a>
+        
+        <div class="navRightSec">
+          <div class="navAppPromo">
+            <img
+              src="https://i.postimg.cc/sXqr2Fz4/smartphone.png"
+              alt="app"
+              class="navAppIcon"
+            />
+            <span id="tagDwn">Download App</span>
+          </div>
+          <span class="navSuplier" onclick="window.location.href='becomeseller.html'">Become a Supplier</span>
+      <style>
+        .submenu {
+          display: flex;
+          position: absolute;
+          margin-top: 1em;
+          display: none;
+          border: 1px solid rgba(61, 61, 61, 0.199);
+          padding-left: 1em;
+          padding-right: 1em;
+          background-color: white;
+        }
+        .subCat {
+          display: flex;
+          flex-direction: column;
+          color: black;
+        }
+        .subCat span {
+          margin: 0.3em;
+        }
+        .subCat span:hover {
+          color: #ff488b;
+        }
+        .subCat .catHeading {
+          margin-bottom: 1em;
+          color: #ff488b;
+        }
+      </style>
+    </section>
+  <section class="blurBack"></section>
+    <!-- Sign up Page -->
+    <div id="RegBox">
+        <div id="SignUpBox">
+            <p style="font-weight: bold">SIGN UP | Become a Member</p>
+            <br>
+            <br>
+            <form  id="form">
+                <!-- <label for="">UserName</label> -->
+                <input id="usernm" type="username" placeholder="Please Enter your Name*" />
+                <br>
+                <!-- <label for="">Email</label> -->
+                <input id="email" type="email" placeholder="Please Enter your E-Mail ID*" />
+                <br>
+                <!-- <label for="">Mobile No</label> -->
+                <input id="mobile" type="text" maxlength="10" placeholder="Please Enter your 10 digit Mobile Number*" />
+                <br>
+                <!-- <label for="">Password</label>  -->
+                <input id="password" type="password" placeholder="Please Set a Password*" />
+                <br>
+        
+                <button id="SignUpBut" type="submit">SIGN UP</button>
+                <button id="SignUpBut" type="submit" onclick="window.location.href='LogInPage.html'">SIGN IN</button>
+              </form>
+        </div>
+               
+    </div>
+    <br>
+    
+    </div>  
+</body>
+</html>
+<script type="text/javascript" src="./script/search.js"></script>
+<script src="./scripts/footer.js"></script>
+
+
+<script>
+    document.getElementById("form").addEventListener("submit", userList);
+    var arr = JSON.parse(localStorage.getItem("user")) || [];
+  
+    function userList(e) {
+        e.preventDefault();
+        console.log("clicked");
+
+        var usernm = document.getElementById("usernm").value;
+        var email = document.getElementById("email").value;
+        var mobile = document.getElementById("mobile").value;
+        var password = document.getElementById("password").value;
+        if (!email || !mobile || !password) {
+            alert("Enter all of the details");
+        }
+        else{
+            var userObj = {
+                usernm: usernm,
+                email: email,
+                mobile: mobile,
+                password: password,
+            };
+            arr.push(userObj);
+            localStorage.setItem("user", JSON.stringify(arr));
+            alert("Welcome Aboard! Let's Get Shopping");
+            window.location.href = "LogInPage.html";
+        }
+    }
+
+    
+</script>
+
